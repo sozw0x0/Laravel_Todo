@@ -16,14 +16,20 @@ class TodosTableSeeder extends Seeder
     {
         $param = [
             'content' => '仕事',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ];
         DB::table('todos')->insert($param);
         $param = [
             'content' => 'みかん',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ];
         DB::table('todos')->insert($param);
         $param = [
             'content' => 'ぱそこん',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ];
         DB::table('todos')->insert($param);
     }

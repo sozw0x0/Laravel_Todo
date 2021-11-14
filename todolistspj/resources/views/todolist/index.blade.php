@@ -42,13 +42,13 @@
               <td>
                 <form action="/todo/update/{{$todo->id}}" method="POST">
                   @csrf
-                <input class="txt-update" type="text" name="body" value="{{$todo->content}}">
+                <input class="txt-update" type="text" name="content" value="{{$todo->content}}">
                 <input type="hidden" name="id" value="{{$todo->id}}">
-                </form>
               </td>
               <td>
                 <button class="btn-update" type="submit">更新</button>
               </td>
+                </form>
               <td>
                 <form action="/todo/delete/{{$todo->id}}" method="POST">
                   @csrf

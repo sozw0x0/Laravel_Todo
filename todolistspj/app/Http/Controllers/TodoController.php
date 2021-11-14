@@ -18,6 +18,7 @@ class Todocontroller extends Controller
     {
         $param = [
             'content' => $request->content,
+            'created_at' => now(),
         ];
         $validate_rule = [
             'content' => 'required|max:20',
@@ -37,6 +38,7 @@ class Todocontroller extends Controller
     {
         $param = [
             'content' => $request->content,
+            'updated_at' => now(),
         ];
         DB::table('todos')->where('id', $request->id)->update($param);
         return redirect('/todo');

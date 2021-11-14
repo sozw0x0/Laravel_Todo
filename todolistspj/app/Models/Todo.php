@@ -9,5 +9,6 @@ class Todo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['content'];
+    protected $fillable = ['content', 'created_at', 'update_at'];
+
 }
