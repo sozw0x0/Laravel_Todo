@@ -11,7 +11,7 @@ class Todocontroller extends Controller
     public function index()
     {
         $todos = Todo::all();
-      return view('todolist.index',['todos' => $todos]);
+        return view('todolist.index',['todos' => $todos]);
     }
 
     public function create(Request $request)
@@ -20,7 +20,7 @@ class Todocontroller extends Controller
             'content' => $request->content,
         ];
         $validate_rule = [
-            'content' => 'required|max:20'
+            'content' => 'required|max:20',
         ];
         $this->validate($request,$validate_rule);
         DB::table('todos')->insert($param);
@@ -44,15 +44,7 @@ class Todocontroller extends Controller
 
     public function delete(Request $request)
     {
-        $item = DB::table('todos')->where('id', $request->id)->first();
-        redirect()->route('todos.index');
-    }
-
-    public function remove(Request $request)
-    {
-        $param = ['id' => $request->id];
-        DB::table('todos')->where('id', $request->id)->delete();
+        Todo::find($request->id)->delete();
         return redirect('/todo');
     }
-
 }

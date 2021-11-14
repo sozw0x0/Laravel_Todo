@@ -26,7 +26,7 @@
           <input class="txt-add" type="text" name="content" value="">
           <input class="btn-add" type="submit" name="btn" value="追加">
         </form>
-        <table>
+        <table border="1">
           <tbody>
             <tr>
               <th>作成日</th>
@@ -40,9 +40,10 @@
                 {{$todo->created_at}}
               </td>
               <td>
-                <form action="/todo/update{{$todo->id}}" method="POST">
+                <form action="/todo/update/{{$todo->id}}" method="POST">
                   @csrf
                 <input class="txt-update" type="text" name="body" value="{{$todo->content}}">
+                <input type="hidden" name="id" value="{{$todo->id}}">
                 </form>
               </td>
               <td>
@@ -51,7 +52,7 @@
               <td>
                 <form action="/todo/delete/{{$todo->id}}" method="POST">
                   @csrf
-                  <button class="btn-delete" type="submit">削除</button>
+                  <input class="btn-delete" type="submit" value="削除" >
                 </form>
               </td>
             </tr>
